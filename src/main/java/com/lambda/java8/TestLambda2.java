@@ -107,4 +107,18 @@ public class TestLambda2 {
 	public Integer operation(Integer num, MyFun mf){
 		return mf.getValue(num);
 	}
+
+
+	@Test
+	public void test7() {
+		// lambda方式遍历hashmap
+		Map<String, Integer> hashMap = new Hashtable<>();
+		hashMap.put("1", 1);
+		hashMap.put("2", 2);
+		hashMap.put("3",3);
+		hashMap.put("4",4);
+		hashMap.forEach((key, value)->{
+			System.out.println(key+"*********"+value);
+		});
+	}
 }

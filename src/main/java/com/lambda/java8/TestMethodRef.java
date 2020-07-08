@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.function.*;
 
 /*
@@ -69,6 +70,7 @@ public class TestMethodRef {
 	//类名 :: 实例方法名
 	@Test
 	public void test5(){
+		// 第一个参数是实例方法的调用者，第二个参数是实例方法的入参，
 		BiPredicate<String, String> bp = (x, y) -> x.equals(y);
 		System.out.println(bp.test("abcde", "abcde"));
 		
@@ -98,6 +100,10 @@ public class TestMethodRef {
 		System.out.println("-------------------------------------");
 		
 		Comparator<Integer> com2 = Integer::compare;
+
+
+		Supplier<Long> millis = System::currentTimeMillis;
+		System.out.println("当前毫秒数："+millis);
 	}
 	
 	@Test
@@ -123,6 +129,12 @@ public class TestMethodRef {
 		
 		Supplier<String> sup2 = emp::getName;
 		System.out.println(sup2.get());
+
+
+		Date date = new Date();
+		Supplier<Long> getTime = date::getTime;
+		Long aLong = getTime.get();
+		System.out.println(aLong);
 	}
 	
 	@Test
