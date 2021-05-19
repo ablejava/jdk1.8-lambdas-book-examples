@@ -1,10 +1,12 @@
 package com.stream.java8;
 
+import com.util.DateUtil;
 import org.junit.Test;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TestStreamAPI3 {
 
@@ -173,17 +175,7 @@ public class TestStreamAPI3 {
                 .map(Employee::getSalary)
                 .collect(Collectors.reducing(Double::sum));
 
-        System.out.println(sum.get()+"-------------------");
-
-
-
-
-
-
-
-
-
-
+        System.out.println(sum.get() + "-------------------");
     }
 
 
@@ -228,9 +220,26 @@ public class TestStreamAPI3 {
 
         Map<City, Optional<Person>> collect = people.stream().collect(Collectors.groupingBy(Person::getCity, Collectors.reducing(BinaryOperator.maxBy(byHeight))));
         Set<City> cities = collect.keySet();
-        cities.forEach((e) ->{
+        cities.forEach((e) -> {
             Optional<Person> r = collect.get(e);
             System.out.println(r.get());
         });
+    }
+
+    @Test
+    public void test11() {
+        //先按日期从小到大排序，再按功率从大到小，之后放入集合中过滤重复，返回List
+//        emps.stream().sorted(Comparator.comparing(GraphResult::getDate)
+//                .thenComparing((o1, o2) -> Integer.compare(o2.getPv1Power(), o1.getPv1Power()))
+//                .thenComparing((o1, o2) -> Integer.compare(o2.getPv2Power(), o1.getPv2Power())))
+//                .collect(Collectors.collectingAndThen(Collectors.toCollection(() ->
+//                        new TreeSet<>(Comparator.comparing(GraphResult::getDate))), ArrayList::new));//过滤重复时间点
+    }
+
+    @Test
+    public void test12(){
+        // 将List<Employee>中的Date转换为 List<sting>
+        List<String> collect = emps.stream().map(Employee::getTime).map(item -> DateUtil.getDate2String(item, DateUtil.yyyy_MM_dd_HH_mm_ss)).collect(Collectors.toList());
+
     }
 }

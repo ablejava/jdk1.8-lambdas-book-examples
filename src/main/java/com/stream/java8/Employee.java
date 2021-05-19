@@ -1,5 +1,7 @@
 package com.stream.java8;
 
+import java.util.Date;
+
 public class Employee {
 
 	private int id;
@@ -7,6 +9,7 @@ public class Employee {
 	private int age;
 	private double salary;
 	private Status status;
+	private Date time;
 
 	public Employee() {
 	}
@@ -77,6 +80,14 @@ public class Employee {
 
 	public String show() {
 		return "测试方法引用！";
+	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
 	@Override
