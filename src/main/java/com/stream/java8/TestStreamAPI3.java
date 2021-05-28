@@ -1,5 +1,6 @@
 package com.stream.java8;
 
+import com.entity.TicketInfo;
 import com.util.DateUtil;
 import org.junit.Test;
 
@@ -240,6 +241,25 @@ public class TestStreamAPI3 {
     public void test12(){
         // 将List<Employee>中的Date转换为 List<sting>
         List<String> collect = emps.stream().map(Employee::getTime).map(item -> DateUtil.getDate2String(item, DateUtil.yyyy_MM_dd_HH_mm_ss)).collect(Collectors.toList());
+
+    }
+
+    /**
+     * 多个list 去重复
+     */
+    public void test13(){
+        List<Long> pubEventIdList = new ArrayList<>();
+        List<Long> eventSubEventIdList = new ArrayList<>();
+        List<Long> pubPerformanceEventIdList = Stream.of(pubEventIdList, eventSubEventIdList).flatMap(Collection::stream).distinct().collect(Collectors.toList());
+
+    }
+
+    /**
+     * 求每个分组中，每个对象中的list数量求和
+     */
+    private void test14() {
+        List<TicketInfo> ticketInfos = new ArrayList<>();
+        Map<String, IntSummaryStatistics> collect = ticketInfos.stream().collect(Collectors.groupingBy(TicketInfo::getName, Collectors.summarizingInt(e -> e.getUnique().size())));
 
     }
 }
