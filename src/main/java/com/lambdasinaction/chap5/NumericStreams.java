@@ -1,6 +1,7 @@
 package com.lambdasinaction.chap5;
 
-import lambdasinaction.chap4.*;
+
+import com.lambdasinaction.chap4.Dish;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.OptionalInt;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static lambdasinaction.chap4.Dish.menu;
+import static com.lambdasinaction.chap4.Dish.menu;
 
 public class NumericStreams{
 

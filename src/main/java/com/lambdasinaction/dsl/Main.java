@@ -16,18 +16,18 @@
 
 package com.lambdasinaction.dsl;
 
-import lambdasinaction.dsl.model.Order;
-import lambdasinaction.dsl.model.Stock;
-import lambdasinaction.dsl.model.Trade;
+import com.lambdasinaction.dsl.model.Order;
+import com.lambdasinaction.dsl.model.Stock;
+import com.lambdasinaction.dsl.model.Trade;
 
-import static lambdasinaction.dsl.MethodChainingOrderBuilder.forCustomer;
-import static lambdasinaction.dsl.NestedFunctionOrderBuilder.*;
-import static lambdasinaction.dsl.NestedFunctionOrderBuilder.at;
-import static lambdasinaction.dsl.NestedFunctionOrderBuilder.buy;
-import static lambdasinaction.dsl.NestedFunctionOrderBuilder.on;
-import static lambdasinaction.dsl.NestedFunctionOrderBuilder.order;
-import static lambdasinaction.dsl.NestedFunctionOrderBuilder.sell;
-import static lambdasinaction.dsl.NestedFunctionOrderBuilder.stock;
+import static com.lambdasinaction.dsl.MethodChainingOrderBuilder.forCustomer;
+import static com.lambdasinaction.dsl.NestedFunctionOrderBuilder.*;
+import static com.lambdasinaction.dsl.NestedFunctionOrderBuilder.at;
+import static com.lambdasinaction.dsl.NestedFunctionOrderBuilder.buy;
+import static com.lambdasinaction.dsl.NestedFunctionOrderBuilder.on;
+import static com.lambdasinaction.dsl.NestedFunctionOrderBuilder.order;
+import static com.lambdasinaction.dsl.NestedFunctionOrderBuilder.sell;
+import static com.lambdasinaction.dsl.NestedFunctionOrderBuilder.stock;
 
 public class Main {
 
@@ -61,44 +61,44 @@ public class Main {
     }
 
     public void methodChaining() {
-        Order order = forCustomer( "BigBank" )
-                        .buy( 80 ).stock( "IBM" ).on( "NYSE" ).at( 125.00 )
-                        .sell( 50 ).stock( "GOOGLE" ).on( "NASDAQ" ).at( 375.00 )
-                        .end();
+//        Order order = forCustomer( "BigBank" )
+//                        .buy( 80 ).stock( "IBM" ).on( "NYSE" ).at( 125.00 )
+//                        .sell( 50 ).stock( "GOOGLE" ).on( "NASDAQ" ).at( 375.00 )
+//                        .end();
 
     }
 
     public void nestedFunction() {
-        Order order = order("BigBank",
-                            buy(80,
-                                stock( "IBM", on( "NYSE" ) ),
-                                at(125.00)),
-                            sell(50,
-                                 stock("GOOGLE", on("NASDAQ")),
-                                 at(375.00))
-                           );
+//        Order order = order("BigBank",
+//                            buy(80,
+//                                stock( "IBM", on( "NYSE" ) ),
+//                                at(125.00)),
+//                            sell(50,
+//                                 stock("GOOGLE", on("NASDAQ")),
+//                                 at(375.00))
+//                           );
     }
 
     public void lambda() {
-        Order order = LambdaOrderBuilder.order( o -> {
-            o.forCustomer( "BigBank" );
-            o.buy( t -> {
-                t.quantity( 80 );
-                t.price( 125.00 );
-                t.stock( s -> {
-                    s.symbol( "IBM" );
-                    s.market( "NYSE" );
-                } );
-            });
-            o.sell( t -> {
-                t.quantity( 50 );
-                t.price( 375.00 );
-                t.stock( s -> {
-                    s.symbol( "GOOGLE" );
-                    s.market( "NASDAQ" );
-                } );
-            });
-        } );
+//        Order order = LambdaOrderBuilder.order( o -> {
+//            o.forCustomer( "BigBank" );
+//            o.buy( t -> {
+//                t.quantity( 80 );
+//                t.price( 125.00 );
+//                t.stock( s -> {
+//                    s.symbol( "IBM" );
+//                    s.market( "NYSE" );
+//                } );
+//            });
+//            o.sell( t -> {
+//                t.quantity( 50 );
+//                t.price( 375.00 );
+//                t.stock( s -> {
+//                    s.symbol( "GOOGLE" );
+//                    s.market( "NASDAQ" );
+//                } );
+//            });
+//        } );
     }
 
 }

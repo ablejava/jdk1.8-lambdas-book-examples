@@ -1,7 +1,7 @@
 package com.lambdasinaction.chap11.v1;
 
-import lambdasinaction.chap11.ExchangeService;
-import lambdasinaction.chap11.ExchangeService.Money;
+import com.lambdasinaction.chap11.ExchangeService;
+import com.lambdasinaction.chap11.ExchangeService.Money;
 
 import java.util.ArrayList;
 import java.util.Arrays;

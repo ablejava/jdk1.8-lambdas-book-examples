@@ -1,6 +1,6 @@
 package com.lambdasinaction.chap11;
 
-import static lambdasinaction.chap11.Util.delay;
+import static com.lambdasinaction.chap11.Util.delay;
 
 public class ExchangeService {
 

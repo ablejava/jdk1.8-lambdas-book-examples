@@ -16,9 +16,9 @@
 
 package com.lambdasinaction.dsl;
 
-import lambdasinaction.dsl.model.Order;
-import lambdasinaction.dsl.model.Stock;
-import lambdasinaction.dsl.model.Trade;
+import com.lambdasinaction.dsl.model.Order;
+import com.lambdasinaction.dsl.model.Stock;
+import com.lambdasinaction.dsl.model.Trade;
 
 public class MethodChainingOrderBuilder {
 

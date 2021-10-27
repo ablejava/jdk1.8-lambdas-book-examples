@@ -16,11 +16,11 @@
 
 package com.lambdasinaction.dsl;
 
-import lambdasinaction.dsl.model.Order;
+import com.lambdasinaction.dsl.model.Order;
 
-import static lambdasinaction.dsl.MixedBuilder.buy;
-import static lambdasinaction.dsl.MixedBuilder.forCustomer;
-import static lambdasinaction.dsl.MixedBuilder.sell;
+import static com.lambdasinaction.dsl.MixedBuilder.buy;
+import static com.lambdasinaction.dsl.MixedBuilder.forCustomer;
+import static com.lambdasinaction.dsl.MixedBuilder.sell;
 
 public class Mixed {
     public void mixed() {

@@ -1,20 +1,22 @@
 package com.lambdasinaction.chap5;
 
-import lambdasinaction.chap4.*;
+
+import com.lambdasinaction.chap4.Dish;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static com.lambdasinaction.chap4.Dish.menu;
 import static java.util.stream.Collectors.toList;
-import static lambdasinaction.chap4.Dish.menu;
 
 public class Filtering{
 
     public static void main(String...args){
 
         // Filtering with predicate
+
         List<Dish> vegetarianMenu =
-            menu.stream()
+                menu.stream()
                 .filter(Dish::isVegetarian)
                 .collect(toList());
 
